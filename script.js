@@ -1,7 +1,8 @@
-// Fetch data from content.json
-fetch('content.json')
-  .then((response) => response.json())
-  .then((data) => {
+// Function to load content
+async function loadContent() {
+    try {
+        const response = await fetch('content.json');
+        const data = await response.json();
     // Populate Career
     const careerContainer = document.getElementById('career-container');
     data.career.forEach((career) => {
