@@ -2,6 +2,19 @@
 fetch('content.json')
   .then((response) => response.json())
   .then((data) => {
+    // Populate Career
+    const careerContainer = document.getElementById('career-container');
+    data.career.forEach((career) => {
+      const careerElement = document.createElement('div');
+      careerElement.classList.add('career');
+      careerElement.innerHTML = `
+        <h3><a href="${career.link}">${career.title}</a></h3>
+        <p>${career.date}</p>
+        <p>${career.summary}</p>
+      `;
+     careerContainer.appendChild(careerElement);
+    });
+    
     // Populate Articles
     const articlesContainer = document.getElementById('articles-container');
     data.articles.forEach((article) => {
