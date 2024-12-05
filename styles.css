@@ -44,6 +44,23 @@ header nav ul li a:hover {
   color: #ff6f61;
 }
 
+/* Logo Styling */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px; /* Adjust size */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 10px; /* Add spacing */
+}
+
+.site-title {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
 /* Main Section Styles */
 main {
   padding: 2rem;
