@@ -42,7 +42,7 @@
     <main>
       <section id="contact" class="section">
         <h2>Contact Me!</h2>
-        <p class="contact-intro">
+        <p>
           For any inquiries regarding
           <span class="highlight"
             >[contracting, hiring, sponsorships, investment]</span
@@ -66,25 +66,22 @@
         </ul>
       </section>
 
-      <section id="index" class="section">
-        <h2>Index</h2>
-        <ul class="index-list">
-          <li><a href="#career">Career</a>: Updates on life & career.</li>
-          <li><a href="#articles">Articles</a>: Some of my thoughts.</li>
-          <li>
-            <a href="#projects">Projects</a>: Most major projects I can share.
-          </li>
-          <li>
-            <a href="#experience">Experience</a>: A few of the teams I've worked
-            with.
-          </li>
-        </ul>
+      <section id="featured-content" class="section">
+        <h2>Featured Content</h2>
+        <div class="featured-card"></div>
       </section>
 
-      <div id="career-container"></div>
-      <div id="articles-container"></div>
-      <div id="projects-container"></div>
-      <div id="experience-container"></div>
+      <div class="content-grid">
+        <section id="articles" class="section">
+          <h2>Latest Articles</h2>
+          <div id="articles-container" class="content-container"></div>
+        </section>
+
+        <section id="projects" class="section">
+          <h2>Featured Projects</h2>
+          <div id="projects-container" class="content-container"></div>
+        </section>
+      </div>
     </main>
 
     <script src="script.js"></script>

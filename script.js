@@ -14,15 +14,42 @@ function showError(containerId, message) {
   }
 }
 
+// Function to create card element
+function createCard(data, type) {
+  const card = document.createElement("div");
+  card.classList.add("card");
+
+  const title = document.createElement("h3");
+  title.classList.add("card-title");
+  const titleLink = document.createElement("a");
+  titleLink.href = type === "project" ? data.link : `/blog/${data.link}`;
+  titleLink.classList.add("highlight");
+  titleLink.textContent = type === "project" ? data.name : data.title;
+  title.appendChild(titleLink);
+
+  const content = document.createElement("div");
+  if (type === "project") {
+    content.innerHTML = `
+          <p class="card-summary">${data.description}</p>
+      `;
+  } else {
+    content.innerHTML = `
+          <p class="card-date">${data.date}</p>
+          <p class="card-summary">${data.summary}</p>
+      `;
+  }
+
+  card.appendChild(title);
+  card.appendChild(content);
+  return card;
+}
+
 // Function to load content
 async function loadContent() {
   // Show loading state for containers
-  [
-    "career-container",
-    "articles-container",
-    "projects-container",
-    "experience-container",
-  ].forEach(showLoading);
+  ["featured-card", "articles-container", "projects-container"].forEach(
+    showLoading
+  );
 
   try {
     const response = await fetch("content.json");
@@ -31,20 +58,17 @@ async function loadContent() {
     }
     const data = await response.json();
 
-    // Populate Career
-    const careerContainer = document.getElementById("career-container");
-    if (careerContainer && data.career) {
-      careerContainer.innerHTML = ""; // Clear loading state
-      data.career.forEach((career) => {
-        const careerElement = document.createElement("div");
-        careerElement.classList.add("career");
-        careerElement.innerHTML = `
-                    <h3><a href="${career.link}" class="highlight">${career.title}</a></h3>
-                    <p class="date">${career.date}</p>
-                    <p class="summary">${career.summary}</p>
-                `;
-        careerContainer.appendChild(careerElement);
-      });
+    // Populate Featured Content
+    const featuredContainer = document.querySelector(".featured-card");
+    if (featuredContainer && data.articles && data.articles.length > 0) {
+      const featured = data.articles[0];
+      featuredContainer.innerHTML = `
+              <h3 class="card-title">
+                  <a href="/blog/${featured.link}" class="highlight">${featured.title}</a>
+              </h3>
+              <p class="card-date">${featured.date}</p>
+              <p class="card-summary">${featured.summary}</p>
+          `;
     }
 
     // Populate Articles
@@ -52,14 +76,8 @@ async function loadContent() {
     if (articlesContainer && data.articles) {
       articlesContainer.innerHTML = ""; // Clear loading state
       data.articles.forEach((article) => {
-        const articleElement = document.createElement("div");
-        articleElement.classList.add("article");
-        articleElement.innerHTML = `
-                    <h3><a href="${article.link}" class="highlight">${article.title}</a></h3>
-                    <p class="date">${article.date}</p>
-                    <p class="summary">${article.summary}</p>
-                `;
-        articlesContainer.appendChild(articleElement);
+        const articleCard = createCard(article, "article");
+        articlesContainer.appendChild(articleCard);
       });
     }
 
@@ -68,19 +86,18 @@ async function loadContent() {
     if (projectsContainer && data.projects) {
       projectsContainer.innerHTML = ""; // Clear loading state
       data.projects.forEach((project) => {
-        const projectElement = document.createElement("div");
-        projectElement.classList.add("project");
-        projectElement.innerHTML = `
-                    <h3><a href="${project.link}" class="highlight">${project.name}</a></h3>
-                    <p class="description">${project.description}</p>
-                `;
-        projectsContainer.appendChild(projectElement);
+        const projectCard = createCard(project, "project");
+        projectsContainer.appendChild(projectCard);
       });
     }
   } catch (error) {
     console.error("Error fetching content:", error);
-    ["articles-container", "projects-container"].forEach((containerId) =>
-      showError(containerId, "Failed to load content. Please try again later.")
+    ["featured-card", "articles-container", "projects-container"].forEach(
+      (containerId) =>
+        showError(
+          containerId,
+          "Failed to load content. Please try again later."
+        )
     );
   }
 }
@@ -88,27 +105,18 @@ async function loadContent() {
 // Add loading and error styles
 const style = document.createElement("style");
 style.textContent = `
-    .loading {
-        padding: 20px;
-        text-align: center;
-        color: var(--highlight);
-    }
-    
-    .error {
-        padding: 20px;
-        text-align: center;
-        color: var(--highlight);
-        background: rgba(255, 107, 107, 0.1);
-        border-radius: 4px;
-    }
-
-     .date {
-      color: #888;
-      font-size: 0.9em;
+  .loading {
+      padding: 20px;
+      text-align: center;
+      color: var(--highlight);
   }
   
-  .summary, .description {
-      margin-top: 8px;
+  .error {
+      padding: 20px;
+      text-align: center;
+      color: var(--highlight);
+      background: rgba(255, 107, 107, 0.1);
+      border-radius: 4px;
   }
 `;
 document.head.appendChild(style);

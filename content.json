@@ -1,18 +1,4 @@
 {
-  "career": [
-    {
-      "title": "Breaking Into HFT",
-      "date": "2024-12-01",
-      "link": "breaking-into-hft",
-      "summary": "A guide on low-latency designs for high-frequency trading."
-    },
-    {
-      "title": "Optimizing FPGA Systems",
-      "date": "2024-11-15",
-      "link": "optimizing-fpga-systems",
-      "summary": "Best practices for building efficient FPGA-based systems."
-    }
-  ],
   "articles": [
     {
       "title": "Breaking Into HFT",
@@ -28,18 +14,6 @@
     }
   ],
   "projects": [
-    {
-      "name": "Weather Forecast App",
-      "description": "An app providing real-time weather forecasts with responsive design.",
-      "link": "https://cuddly-invention-plum.vercel.app/"
-    },
-    {
-      "name": "Latency Optimizer",
-      "description": "A tool designed to benchmark and optimize low-latency systems.",
-      "link": "latency-optimizer"
-    }
-  ],
-  "experience": [
     {
       "name": "Weather Forecast App",
       "description": "An app providing real-time weather forecasts with responsive design.",

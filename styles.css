@@ -1,3 +1,4 @@
+/* Existing styles remain the same */
 :root {
     --background: #1a1a1a;
     --text: #ffffff;
@@ -101,15 +102,15 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Career, Article, Project and Experience Styles */
-.career, .article, .project, .experience {
+/* Article and Project Styles */
+.article, .project {
     margin-bottom: 2rem;
     padding: 1rem;
     background-color: var(--header-bg);
     border-radius: 4px;
 }
 
-.career h3, .article h3, .project h3, .experience h3  {
+.article h3, .project h3 {
     margin-top: 0;
 }
 
@@ -120,4 +121,113 @@ a:hover {
 
 .summary, .description {
     margin-top: 0.5rem;
+}
+
+/* New styles for content grid */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+    .content-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.featured-card {
+    background-color: var(--header-bg);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.card {
+    background-color: var(--header-bg);
+    border-radius: 4px;
+    padding: 1.5rem;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-date {
+    color: var(--highlight);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-summary {
+    color: #cccccc;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Blog post styles */
+.blog-post {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.blog-header {
+    margin-bottom: 2rem;
+}
+
+.blog-title {
+    font-size: 2.5rem;
+    color: var(--highlight);
+    margin-bottom: 1rem;
+}
+
+.blog-date {
+    color: #888;
+    font-size: 1rem;
+}
+
+.blog-content {
+    background-color: var(--header-bg);
+    padding: 2rem;
+    border-radius: 4px;
+}
+
+.blog-content h2 {
+    color: var(--highlight);
+    font-size: 1.75rem;
+    margin: 2rem 0 1rem;
+}
+
+.blog-content h3 {
+    color: var(--highlight);
+    font-size: 1.5rem;
+    margin: 1.5rem 0 1rem;
+}
+
+.blog-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.blog-content ul {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.blog-content li {
+    margin-bottom: 0.5rem;
 }
