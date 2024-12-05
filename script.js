@@ -17,7 +17,12 @@ function showError(containerId, message) {
 // Function to load content
 async function loadContent() {
   // Show loading state for containers
-  ["articles-container", "projects-container"].forEach(showLoading);
+  [
+    "career-container",
+    "articles-container",
+    "projects-container",
+    "experience-container",
+  ].forEach(showLoading);
 
   try {
     const response = await fetch("content.json");
@@ -25,6 +30,22 @@ async function loadContent() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
+
+    // Populate Career
+    const careerContainer = document.getElementById("career-container");
+    if (careerContainer && data.career) {
+      careerContainer.innerHTML = ""; // Clear loading state
+      data.career.forEach((career) => {
+        const careerElement = document.createElement("div");
+        careerElement.classList.add("career");
+        careerElement.innerHTML = `
+                    <h3><a href="${career.link}" class="highlight">${career.title}</a></h3>
+                    <p class="date">${career.date}</p>
+                    <p class="summary">${career.summary}</p>
+                `;
+        careerContainer.appendChild(careerElement);
+      });
+    }
 
     // Populate Articles
     const articlesContainer = document.getElementById("articles-container");
@@ -34,10 +55,10 @@ async function loadContent() {
         const articleElement = document.createElement("div");
         articleElement.classList.add("article");
         articleElement.innerHTML = `
-                  <h3><a href="${article.link}">${article.title}</a></h3>
-                  <p class="date">${article.date}</p>
-                  <p class="summary">${article.summary}</p>
-              `;
+                    <h3><a href="${article.link}" class="highlight">${article.title}</a></h3>
+                    <p class="date">${article.date}</p>
+                    <p class="summary">${article.summary}</p>
+                `;
         articlesContainer.appendChild(articleElement);
       });
     }
@@ -50,9 +71,9 @@ async function loadContent() {
         const projectElement = document.createElement("div");
         projectElement.classList.add("project");
         projectElement.innerHTML = `
-                  <h3><a href="${project.link}">${project.name}</a></h3>
-                  <p class="description">${project.description}</p>
-              `;
+                    <h3><a href="${project.link}" class="highlight">${project.name}</a></h3>
+                    <p class="description">${project.description}</p>
+                `;
         projectsContainer.appendChild(projectElement);
       });
     }
@@ -64,24 +85,24 @@ async function loadContent() {
   }
 }
 
-// Add loading styles
+// Add loading and error styles
 const style = document.createElement("style");
 style.textContent = `
-  .loading {
-      padding: 20px;
-      text-align: center;
-      color: #888;
-  }
-  
-  .error {
-      padding: 20px;
-      text-align: center;
-      color: #ff6f61;
-      background: rgba(255, 111, 97, 0.1);
-      border-radius: 4px;
-  }
-  
-  .date {
+    .loading {
+        padding: 20px;
+        text-align: center;
+        color: var(--highlight);
+    }
+    
+    .error {
+        padding: 20px;
+        text-align: center;
+        color: var(--highlight);
+        background: rgba(255, 107, 107, 0.1);
+        border-radius: 4px;
+    }
+
+     .date {
       color: #888;
       font-size: 0.9em;
   }

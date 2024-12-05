@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tolahash Portfolio</title>
+    <title>Tolahash</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
     <!-- Add multiple favicon formats -->
@@ -22,65 +22,70 @@
   </head>
   <body>
     <header>
-      <div class="logo-container">
-        <img src="assets/logo.png" alt="Website Logo" class="logo" />
-        <h1 class="site-title">Tolahash Portfolio</h1>
+      <div class="header-content">
+        <div class="logo-title">
+          <img src="assets/logo.png" alt="Tolahash Logo" class="logo" />
+          <h1>Tolahash</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#career">Career</a></li>
+            <li><a href="#articles">Articles</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+          </ul>
+        </nav>
       </div>
-      <nav>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#career">Career</a></li>
-          <li><a href="#articles">Articles</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#experience">Experience</a></li>
-        </ul>
-      </nav>
     </header>
 
     <main>
-      <section id="career" class="section">
-        <h2>Career</h2>
-        <div id="career-container"></div>
-      </section>
-
-      <section id="articles" class="section">
-        <h2>Articles</h2>
-        <div id="articles-container"></div>
-      </section>
-
-      <section id="projects" class="section">
-        <h2>Projects</h2>
-        <div id="projects-container"></div>
-      </section>
-
-      <section id="experience" class="section">
-        <h2>Experience</h2>
-        <div id="experience-container"></div>
-      </section>
-
-      <section id="intro" class="section">
+      <section id="contact" class="section">
         <h2>Contact Me!</h2>
-        <p>
-          For inquiries regarding
-          <strong>contracting, hiring, sponsorships</strong>, or collaboration,
-          reach out via:
+        <p class="contact-intro">
+          For any inquiries regarding
+          <span class="highlight"
+            >[contracting, hiring, sponsorships, investment]</span
+          >, or if you're a like-minded individual, reach out on:
         </p>
-        <ul>
-          <li><a href="https://x.com/tolahash">Twitter</a></li>
-          <li>Email: tolahash@protonmail.com</li>
-          <li>Telegram: @tolahash</li>
+        <ul class="contact-list">
+          <li>
+            Twitter:
+            <a href="https://x.com/tolahash" class="highlight">@Tolahash</a>
+          </li>
+          <li>
+            Email me:
+            <a href="mailto:tolahash@protonmail.com" class="highlight"
+              >tolahash@protonmail.com</a
+            >
+          </li>
+          <li>
+            Telegram:
+            <a href="https://t.me/tolahash" class="highlight">@Tolahash</a>
+          </li>
         </ul>
       </section>
 
-      <!-- <section id="tldr" class="section">
-        <h2>TL;DR</h2>
-        <p>Currently learning low latency designs to break into HFT.</p>
-      </section> -->
-    </main>
+      <section id="index" class="section">
+        <h2>Index</h2>
+        <ul class="index-list">
+          <li><a href="#career">Career</a>: Updates on life & career.</li>
+          <li><a href="#articles">Articles</a>: Some of my thoughts.</li>
+          <li>
+            <a href="#projects">Projects</a>: Most major projects I can share.
+          </li>
+          <li>
+            <a href="#experience">Experience</a>: A few of the teams I've worked
+            with.
+          </li>
+        </ul>
+      </section>
 
-    <footer>
-      <p>&copy; 2024 Tolahash</p>
-    </footer>
+      <div id="career-container"></div>
+      <div id="articles-container"></div>
+      <div id="projects-container"></div>
+      <div id="experience-container"></div>
+    </main>
 
     <script src="script.js"></script>
   </body>
