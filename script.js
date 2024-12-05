@@ -44,6 +44,28 @@ function createCard(data, type) {
   return card;
 }
 
+// Blog posts data (this could be replaced by a JSON file or an API later)
+const blogPosts = [
+  { title: "Post 1", slug: "post1.html" },
+  { title: "Post 2", slug: "post2.html" },
+];
+
+// Load blog posts into the blog container
+const blogContainer = document.getElementById("blog-container");
+
+blogPosts.forEach((post) => {
+  const postElement = document.createElement("div");
+  postElement.classList.add("blog-post");
+
+  // Create link
+  const link = document.createElement("a");
+  link.href = `posts/${post.slug}`;
+  link.textContent = post.title;
+
+  postElement.appendChild(link);
+  blogContainer.appendChild(postElement);
+});
+
 // Function to load content
 async function loadContent() {
   // Show loading state for containers
