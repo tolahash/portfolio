@@ -3,7 +3,7 @@
     {
       "title": "Breaking Into HFT",
       "date": "2024-12-01",
-      "link": "breaking-into-hft",
+      "link": "breaking-into-hft.html",
       "summary": "A guide on low-latency designs for high-frequency trading."
     },
     {
@@ -17,7 +17,7 @@
     {
       "name": "Weather Forecast App",
       "description": "An app providing real-time weather forecasts with responsive design.",
-      "link": "https://cuddly-invention-plum.vercel.app/"
+      "link": "https://weather-invention.vercel.app/"
     },
     {
       "name": "Latency Optimizer",
