@@ -1,0 +1,28 @@
+{
+  "articles": [
+    {
+      "title": "Breaking Into HFT",
+      "date": "2024-12-01",
+      "link": "#",
+      "summary": "A guide on low-latency designs for high-frequency trading."
+    },
+    {
+      "title": "Optimizing FPGA Systems",
+      "date": "2024-11-15",
+      "link": "#",
+      "summary": "Best practices for building efficient FPGA-based systems."
+    }
+  ],
+  "projects": [
+    {
+      "name": "Weather Forecast App",
+      "description": "An app providing real-time weather forecasts with responsive design.",
+      "link": "#"
+    },
+    {
+      "name": "Latency Optimizer",
+      "description": "A tool designed to benchmark and optimize low-latency systems.",
+      "link": "#"
+    }
+  ]
+}
