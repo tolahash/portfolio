@@ -96,7 +96,7 @@ footer p {
   color: #888;
 }
 
-.article, .project {
+.career, .article, .project, .experience {
   border: 1px solid #444;
   padding: 10px;
   margin-bottom: 15px;
@@ -104,11 +104,11 @@ footer p {
   color: #fff;
 }
 
-.article h3, .project h3 {
+.career h3, .article h3, .project h3, .experience h3 {
   margin: 0;
 }
 
-.article p, .project p {
+.career p, .article p, .project p, .experience p {
   margin: 5px 0;
 }
 
