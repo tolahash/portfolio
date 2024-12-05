@@ -46,8 +46,8 @@ function createCard(data, type) {
 
 // Blog posts data (this could be replaced by a JSON file or an API later)
 const blogPosts = [
-  { title: "Post 1", slug: "post1.html" },
-  { title: "Post 2", slug: "post2.html" },
+  { title: "Post 1", slug: "posts/breaking-into-hft.html" },
+  { title: "Post 2", slug: "posts/optimizing-fpga-systems.html" },
 ];
 
 // Load blog posts into the blog container
